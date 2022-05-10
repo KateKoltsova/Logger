@@ -1,0 +1,21 @@
+{
+    "name": "koltsova/logger",
+    "description": "Logger project",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kate Koltsova",
+            "email": "kate.petronyuk@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "psr/log": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Logger\\": "src"
+        }
+    }
+}
