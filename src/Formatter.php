@@ -2,8 +2,19 @@
 
 namespace Logger;
 
+/**
+ * Class for formatting received logs information.
+ */
 class Formatter implements FormatterInterface
 {
+    /**
+     * Main function for formatting.
+     * @param $logInfo
+     * @param $level
+     * @param $message
+     * @param $context
+     * @return void
+     */
     public function format(&$logInfo, $level, $message, $context = [])
     {
         $date = new \DateTime('now');
