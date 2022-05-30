@@ -18,20 +18,13 @@ class Logger extends AbstractLogger
     public array $writters = [];
 
     /**
-     * Determines the name of the called class from the type of storage.
-     * Creates an object of this class and writes it to the writers array.
+     * Gets array of WritterInterface to write logs
      * @param array $storage
      */
-    public function __construct(array $storage)
+    public function __construct(array $writters)
     {
-        foreach ($storage as $stor)
-        {
-            $className = "Logger\\$stor".'Writter';
-            if (class_exists($className)) {
-                $this->writters[] = new $className();
-            } else {
-                echo "Logger can`t writing to $stor!".PHP_EOL;
-            }
+        foreach ($writters as $writter) {
+            $this->writters[] = $writter;
         }
     }
 
@@ -42,10 +35,10 @@ class Logger extends AbstractLogger
      * @param array $context
      * @return void
      */
-    public function log($level, \Stringable|string $message, array $context = []): void
+    public function log($level, $message, array $context = []): void
     {
         foreach ($this->writters as $writter) {
-                $writter->write($level, $message, $context);
+            $writter->write($level, $message, $context);
         }
     }
 }

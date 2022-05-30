@@ -15,13 +15,15 @@ class Formatter implements FormatterInterface
      * @param $context
      * @return void
      */
-    public function format(&$logInfo, $level, $message, $context = [])
+    public function format(&$logInfo, $level, $message, array $context = [])
     {
         $date = new \DateTime('now');
         $logInfo['date'] = $date->format('Y.m.d');
         $logInfo['time'] = $date->format('H:i:s');
         $logInfo['level'] = $level;
         $logInfo['message'] = $message;
-        $logInfo['context'] = implode(', ', $context);
+        foreach ($context as $item) {
+            $logInfo['context'] = $logInfo['context'] . serialize($item);
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace Logger;
  */
 interface WritterInterface
 {
-    public function __construct();
+    public function __construct(FormatterInterface $formatter);
 
     /**
      * Main function.

@@ -8,9 +8,9 @@ namespace Logger;
 class FileWritter implements WritterInterface
 {
     /**
-     * @var Formatter
+     * @var FormatterInterface
      */
-    public Formatter $formatter;
+    public FormatterInterface $formatter;
 
     /**
      * Consist formatting log information.
@@ -27,9 +27,9 @@ class FileWritter implements WritterInterface
     /**
      * With this function creating object of Formatter for using for formatting logs.
      */
-    public function __construct()
+    public function __construct(FormatterInterface $formatter)
     {
-        $this->formatter = new Formatter();
+        $this->formatter = $formatter;
     }
 
     /**

@@ -12,8 +12,8 @@ interface FormatterInterface
      * @param $logInfo
      * @param $level
      * @param $message
-     * @param $context
+     * @param array $context
      * @return mixed
      */
-    public function format(&$logInfo, $level, $message, $context = []);
+    public function format(&$logInfo, $level, $message, array $context = []);
 }
